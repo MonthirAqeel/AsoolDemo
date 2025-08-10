@@ -1,0 +1,383 @@
+:root {
+  --yellow: #D4952F;
+  --cream: #eddc97;
+  --white: #FFFFFF;
+  --bg: #EFECE0;
+  --text: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Avenir Next Arabic', sans-serif;
+  background-color: var(--bg);
+  color: #555;
+  overflow-x: hidden;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  background-color: #EFECE0;
+  border-bottom: 1px solid #EDDC97;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row; 
+}
+
+.logo {
+  height: 80px; 
+  width: auto;
+  object-fit: contain;
+  
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-left: 50px;
+  padding: 0;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text);
+  margin-right:250px ;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background-color: var(--yellow);
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -6px;
+  right: 0;
+}
+
+.nav-links li a:hover {
+  color: var(--yellow);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links.show {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ========== HERO SECTION ========== */
+.landing-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 10% 80px;
+  position: relative;
+  background-color: #EDDC97;
+}
+
+.background-gradient {
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle at center, var(--yellow), var(--yellow));
+  filter: blur(150px);
+  z-index: -1;
+}
+
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+}
+
+.text-content h1 {
+  font-size: 3rem;
+  color: var(--yellow);
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  animation: fadeIn 1.3s ease forwards;
+}
+
+.store-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.store img {
+  height: 55px;
+  transition: transform 0.3s ease;
+}
+
+.store:hover img {
+  transform: scale(1.1);
+}
+
+.phone-mockup {
+  flex: 1;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+  animation: floatPhone 3s ease-in-out infinite;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatPhone {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
+}
+
+.phone-mockup img {
+  width: 490px; /* 🔥 Very large */
+  max-width: 95vw;
+  animation: float-wavy 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  z-index: 10;
+  position: relative;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.3));
+}
+
+@media (max-width: 768px) {
+  .phone-mockup img {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    margin-right: 0;
+    font-size: 24px;
+    padding: 5px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #EFECE0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 20px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .navbar-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .text-content {
+    max-width: 100%;
+    text-align: center;
+    padding: 0 15px;
+  }
+
+  .text-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+  }
+
+  .phone-mockup img {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .store-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .store img {
+    height: 45px;
+  }
+
+  .background-gradient {
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    filter: blur(100px);
+  }
+
+  /* Disable bee animations on mobile for better performance */
+  .bee {
+    display: none;
+  }
+
+  .landing-wrapper {
+    padding: 100px 15px 60px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 8px 10px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .hamburger {
+    font-size: 20px;
+  }
+
+  .text-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .text-content p {
+    font-size: 0.9rem;
+  }
+
+  .phone-mockup img {
+    width: 85%;
+    max-width: 250px;
+  }
+
+  .store img {
+    height: 40px;
+  }
+
+  .landing-wrapper {
+    padding: 80px 10px 40px;
+  }
+}
+
+
+
+/* General styles for the bee icon */
+.bee {
+  position: fixed;
+  font-size: 30px;
+  z-index: 10;
+  color: #D4952F; /* Set the color of the bee */
+  animation: floatAround 20s linear infinite, rotateBee 5s linear infinite; /* Animation for floating and rotating */
+}
+
+.bee2 {
+  top: 40%;
+  left: 60%;
+  animation-delay: 5s;
+  position: fixed;
+}
+
+.bee3 {
+  top: 70%;
+  left: 15%;
+  animation-delay: 2s;
+  position: fixed;
+}
+
+

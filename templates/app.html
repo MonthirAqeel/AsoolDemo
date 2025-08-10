@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تطبيق عسول - من أجل حياة أفضل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { font-family: 'Cairo', sans-serif; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="logo-link">
+      <img src="{{ url_for('static', filename='Alo.png') }}" alt="شعار عسول" class="logo">
+    </a>
+      <button class="hamburger" onclick="toggleMenu()" title="فتح القائمة الجانبية">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">من نحن</a></li>
+        <li><a href="/vision">الرؤية</a></li>
+        <li><a href="/#contact" id="contact-nav">تواصل معنا</a></li>
+        <li><a href="/privacy">سياسة الخصوصية</a></li>
+        <li><a href="/terms">شروط الاستخدام</a></li>
+        <li><a href="/app">التطبيق</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+<div class="landing-wrapper">
+  <div class="background-gradient"></div>
+
+  <!-- Floating bees -->
+  <i class="fas fa-bug bee bee1"></i>
+  <i class="fas fa-bug bee bee2"></i>
+  
+
+  <div class="hero-container">
+    <div class="text-content">
+      <h1>من أجل حياة أفضل</h1>
+      <p>لاتنيبلايبنيلت</p>
+      <div class="store-buttons">
+        <a href="https://play.google.com/store/apps/details?id=com.assoul.app" class="btn store">
+          <img src="{{ url_for('static', filename='googleplay.png') }}" alt="Google Play">
+        </a>
+        <a href="https://apps.apple.com/sa/app/%D8%B9%D8%B3%D9%88%D9%84-%D8%A7%D9%84%D8%B5%D8%AD%D9%8A/id6746349153" class="btn store">
+          <img src="{{ url_for('static', filename='appstore.png') }}" alt="App Store">
+        </a>
+      </div>
+    </div>
+    <div class="phone-mockup">
+      <img src="{{ url_for('static', filename='Adobe Express - file.png') }}" alt="App Screenshot">
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
+  }
+
+  // Phone scroll animation
+  window.addEventListener('scroll', () => {
+    const phone = document.querySelector('.phone-mockup');
+    if (phone) {
+      const y = window.scrollY * 0.2;
+      const r = window.scrollY * 0.1;
+      phone.style.transform = `translateY(${y}px) rotate(${r}deg)`;
+    }
+  });
+</script>
+
+</body>
+</html>
+
